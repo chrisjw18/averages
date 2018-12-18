@@ -15,7 +15,7 @@ make_averages <- function(dataframe = NA, params = NA, treatments = NA){
 
     if(i == 1){ #for first instance, to initiate aggregated data frame
     x <- aggregate(as.formula(form), data=dataframe, FUN = mean, na.action = NULL, na.rm = T)
-    my.count <- aggregate(as.formula(form), data=dataframe, FUN = length, na.action = NULL, na.rm = T)[,length(treatments)+1]
+    my.count <- aggregate(as.formula(form), data=dataframe, FUN = length, na.action = NULL)[,length(treatments)+1]
     sd.nam <- paste(params[i], 'sd', sep='_')
     x[,sd.nam] <- aggregate(as.formula(form), data=dataframe, FUN = sd, na.action = NULL, na.rm = T)[,length(treatments)+1]
     se.nam <- paste(params[i], 'se', sep='_')
